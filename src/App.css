@@ -10,7 +10,6 @@ body {
   padding: 20px;
 }
 
-/* Header styles */
 .App-header {
   background-color: #282c34;
   color: white;
@@ -19,7 +18,6 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Form styles */
 form {
   margin-bottom: 20px;
 }
@@ -52,7 +50,6 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Event styles */
 .event {
   background-color: #fff;
   padding: 20px;
