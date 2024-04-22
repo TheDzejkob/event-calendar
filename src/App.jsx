@@ -1,27 +1,33 @@
 import './App.css';
+import EventForm from './EventForm';
+import EventList from './EventList';
+import { useState } from 'react';
 
 function App() {
+
+  const [events, setEvents] = useState([]);
+
+  const addEvent = (nazev, date, time, obsah) => {
+    const newEvent = {
+      id: Date.now(),
+      nazev: nazev,
+      date: date,
+      time: time,
+      obsah: obsah
+    };
+    setEvents([...events, newEvent]);
+  };
+
+  const deleteEvent = (id) => {
+    setEvents(events.filter(event => event.id !== id));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
+      <h1>Event Appka</h1>
+     <EventForm addEvent={addEvent}/>
+     <EventList events={events} deleteEvent={deleteEvent} />
+
     </div>
   );
 }
